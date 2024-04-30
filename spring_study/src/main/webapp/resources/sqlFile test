@@ -101,6 +101,9 @@ select count(bno) from file where bno = b.bno)
 comment에서 특정 bno를 가지는 개수
 select count(bno) from comment where bno = bno
 
+(bdao)
+update board set cmt_qty = cmt_qty + 1 where bno = #{bno}
+
 
 
 
