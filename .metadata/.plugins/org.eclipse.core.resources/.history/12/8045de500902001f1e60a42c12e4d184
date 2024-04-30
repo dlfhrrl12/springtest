@@ -1,0 +1,26 @@
+package com.ezen.test.service;
+
+
+import com.ezen.test.domain.BoardVO;
+import java.util.List;
+
+public interface BoardService {
+
+	int insert(BoardVO bvo);
+
+	List<BoardVO> getList();
+
+	BoardVO getDetail(int bno);
+
+	void update(BoardVO bvo);
+
+	void delete(BoardVO bvo);
+
+
+
+
+
+
+
+
+}

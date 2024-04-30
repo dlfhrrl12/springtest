@@ -1,0 +1,26 @@
+
+4월 29, 2024 09:48:03.87 NEW SESSION
+4월 29, 2024 09:48:03.87 Created TensorFlow Lite XNNPACK delegate for CPU.
+4월 29, 2024 10:00:26.345 [4056:8664:0429/100026.345:ERROR:interface_endpoint_client.cc(707)] Message 1 rejected by interface blink.mojom.WidgetHost
+4월 29, 2024 10:35:41.333 [4056:8664:0429/103541.333:ERROR:interface_endpoint_client.cc(707)] Message 1 rejected by interface blink.mojom.WidgetHost
+4월 29, 2024 10:40:40.129 [4056:8664:0429/104040.129:ERROR:device_event_log_impl.cc(195)] [10:40:40.129] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+4월 29, 2024 10:46:44.97 [4056:8664:0429/104644.096:ERROR:device_event_log_impl.cc(195)] [10:46:44.096] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+4월 29, 2024 11:14:55.826 [4056:8664:0429/111455.826:ERROR:device_event_log_impl.cc(195)] [11:14:55.826] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+4월 29, 2024 11:15:02.936 [4056:8664:0429/111502.935:ERROR:device_event_log_impl.cc(195)] [11:15:02.935] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+4월 29, 2024 11:43:32.04 [4056:8664:0429/114332.003:ERROR:device_event_log_impl.cc(195)] [11:43:32.003] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+4월 29, 2024 12:59:11.291 [4056:8664:0429/125911.291:ERROR:device_event_log_impl.cc(195)] [12:59:11.291] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+4월 29, 2024 15:28:46.544 [4056:8664:0429/152846.544:ERROR:device_event_log_impl.cc(195)] [15:28:46.544] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+4월 29, 2024 15:53:16.497 [4056:8664:0429/155316.497:ERROR:device_event_log_impl.cc(195)] [15:53:16.498] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+4월 29, 2024 16:00:50.923 [4056:8664:0429/160050.922:ERROR:device_event_log_impl.cc(195)] [16:00:50.922] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+4월 29, 2024 16:17:17.275 [4056:8664:0429/161717.275:ERROR:device_event_log_impl.cc(195)] [16:17:17.274] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+4월 29, 2024 16:47:30.106 [4056:8664:0429/164730.106:ERROR:device_event_log_impl.cc(195)] [16:47:30.106] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+4월 29, 2024 17:45:30.498 [4056:8664:0429/174530.498:ERROR:device_event_log_impl.cc(195)] [17:45:30.498] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+
+4월 30, 2024 09:48:49.649 NEW SESSION
+4월 30, 2024 09:48:49.649 Created TensorFlow Lite XNNPACK delegate for CPU.
+4월 30, 2024 10:45:57.488 [4484:10972:0430/104557.488:ERROR:device_event_log_impl.cc(195)] [10:45:57.487] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+4월 30, 2024 12:09:01.650 [4484:10972:0430/120901.650:ERROR:interface_endpoint_client.cc(707)] Message 1 rejected by interface blink.mojom.WidgetHost
+4월 30, 2024 12:56:56.708 [4484:10972:0430/125656.708:ERROR:device_event_log_impl.cc(195)] [12:56:56.707] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+4월 30, 2024 12:58:42.328 [4484:10972:0430/125842.328:ERROR:device_event_log_impl.cc(195)] [12:58:42.327] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+4월 30, 2024 14:38:36.447 [4484:10972:0430/143836.447:ERROR:device_event_log_impl.cc(195)] [14:38:36.446] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+4월 30, 2024 15:07:29.359 [4484:10972:0430/150729.359:ERROR:device_event_log_impl.cc(195)] [15:07:29.360] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)

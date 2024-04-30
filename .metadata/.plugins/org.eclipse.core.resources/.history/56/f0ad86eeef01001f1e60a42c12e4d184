@@ -1,0 +1,13 @@
+package com.ezen.test.repository;
+
+import com.ezen.test.domain.BoardVO;
+import java.util.List;
+public interface BoardDAO {
+
+	int insert(BoardVO bvo);
+
+	java.util.List<BoardVO> getList();
+
+
+
+}
