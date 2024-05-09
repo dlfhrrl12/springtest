@@ -1,7 +1,0 @@
-package com.ezen.test.repository;
-
-public interface CommentDAO {
-
-	int post();
-
-}

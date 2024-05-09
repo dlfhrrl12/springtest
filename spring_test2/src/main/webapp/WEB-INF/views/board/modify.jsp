@@ -1,101 +1,102 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../layout/header.jsp" />
 
-<div class="container-md">
 
-	<h1>Board List Page</h1>
+<div  class="container-md">
+<h1>Board Modify Page</h1>
 
-	<!-- 검색라인 -->
-	<%-- <form class="d-flex" action="/board/list" method="get">
-		<div class="input-group mb-3">
-			<select name="type" class="form-select form-select-sm"
-				aria-label="Small select example">
-				<option ${ph.pgvo.type == null ? 'selected' : '' } selected >Open this select menu</option>
-				<option ${ph.pgvo.type eq 't' ? 'selected' : '' } value="t">게시글</option>
-				<option ${ph.pgvo.type eq 'w' ? 'selected' : '' } value="w">작성자</option>
-				<option ${ph.pgvo.type eq 'c' ? 'selected' : '' } value="c">내용</option>
-				<option ${ph.pgvo.type eq 'tc' ? 'selected' : '' } value="tc">제목+내용</option>
-				<option ${ph.pgvo.type eq 'wc' ? 'selected' : '' } value="wc">작성자+내용</option>
-				<option ${ph.pgvo.type eq 'tw' ? 'selected' : '' } value="tw">제목+작성자</option>
-				<option ${ph.pgvo.type eq 'twc' ? 'selected' : '' } value="twc">전체</option>
-			</select> 
-			<input name="keyword" type="text" class="form-control"aria-label="Text input with dropdown button" placeholder="search..." value="${ph.pgvo.keyword}">
-				<input type="hidden" name="pageNo" value="1" >
-				<input type="hidden" name="qty" value="10">
-			<button type="submit" class="btn btn-outline-dark position-relative">
-				검색 <span
-					class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-					${ph.totalCount } <span class="visually-hidden">unread messages</span>
-				</span>
-			</button>
-		</div>
-	</form> --%>
+ <c:set value="${bdto.bvo }" var="bvo"></c:set> 
 
-
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th>#</th>
-				<th>title</th>
-				<th>writer</th>
-				<th>작성일</th>
-				<th>조회수</th>
-				<th></th>
-			</tr>
-		</thead>
-
-		<tbody>
-			<c:forEach items="${list }" var="li">
-				<tr>
-					<td>${li.bno }</td>
-					<td>
-					<a href="/board/detail?bno=${li.bno }">${li.title } 
-					<c:if test="${li. cmtQty ne 0}">
-					<strong style="color: red;">[${li.cmtQty }]</strong>
-					</c:if>
-					</a></td>
-					<td>${li.writer }</td>
-					<td>${li.regDate }</td>
-					<td>${li.readCount }</td>
-					<td>
-					<c:if test="${li.hasFile ne 0 }">
-					<span class="badge text-bg-info">
-					${li.hasFile } Image Upload
-					</span>
-					</c:if>
-					</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-
-
-	<!-- 페이지네이션 -->
-
-<%-- 	<nav aria-label="Page navigation example">
-		<ul class="pagination justify-content-center">
-		
-		<c:if test="${ph.prev }">
-			<li class="page-item"><a class="page-link" href="/board/list?pageNo=${ph.startPage-1 }&qty=${ph.pgvo.qty}&type=${ph.pgvo.type}&keyword=${ph.pgvo.keyword}"
-				aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a></li>
-		</c:if>
-				
-				
-				<c:forEach begin="${ph.startPage }" end="${ph.endPage }" var="i">
-			<li class="page-item"><a class="page-link" href="/board/list?pageNo=${i }&qty=${ph.pgvo.qty}&type=${ph.pgvo.type}&keyword=${ph.pgvo.keyword}"> ${i } </a></li>
-				</c:forEach>
-				
-				<c:if test="${ph.next }">
-			<li class="page-item"><a class="page-link" href="/board/list?pageNo=${ph.endPage+1 }&qty=${ph.pgvo.qty}&type=${ph.pgvo.type}&keyword=${ph.pgvo.keyword}"
-				aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-			</a></li>
-				</c:if>
-		</ul>
-	</nav> --%>
-
-
-	<jsp:include page="../layout/footer.jsp" />
+<form action="/board/modify" method="post" enctype="multipart/form-data">
+<div class="mb-3">
+  <label for="n" class="form-label">bno</label>
+  <input type="text" class="form-control" id="n" placeholder="bno" name="bno" value="${bvo.bno }" readonly="readonly">
 </div>
+<div class="mb-3">
+  <label for="t" class="form-label">title</label>
+  <input type="text" class="form-control" id="t" placeholder="title" name="title" value="${bvo.title }">
+</div>
+<div class="mb-3">
+  <label for="w" class="form-label">writer</label>
+  <input type="text" class="form-control" id="w" placeholder="writer" name="writer" value="${bvo.writer }" readonly="readonly">
+</div>
+<div class="mb-3">
+  <label for="r" class="form-label">작성일</label>
+  <input type="text" class="form-control" id="r" placeholder="reg_date" name="reg_daet" value="${bvo.regDate }" readonly="readonly">
+</div>
+<div class="mb-3">
+  <label for="c" class="form-label">content</label>
+  <textarea class="form-control" id="c" name="content" aria-label="With textarea">${bvo.content }</textarea>
+</div>
+
+<br>
+<hr>
+
+
+<!-- FIle upload 표시라인 -->
+ <c:set value="${bdto.flist }" var="flist" />
+
+	<div class="mb-3">
+
+		<ul class="list-group list-group-flush">
+
+			<!-- 파일 개수만큼 li를 반복하여 파일 표시 타입이 1인경우만 표시 -->
+			<!-- li => div => img -->
+			<!-- => div => 파일이름, 작성일, span size -->
+
+			<c:forEach items="${flist }" var="fvo">
+				<li class="list-group-item"><c:choose>
+						<c:when test="${fvo.fileType > 0 }">
+							<div>
+								<img alt="" src="/up/${fvo.saveDir }/${fvo.uuid}_${fvo.fileName}">
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div>
+								<!-- 파일 타입이 0인 경우 아이콘 모양 하나 가져와서 넣기 -->
+							</div>
+						</c:otherwise>
+					</c:choose>
+					<div>
+						<div>${fvo.fileName }</div>
+						${fvo.regDate } <span class="badge text-bg-warning">${fvo.fileSize }Byte</span>
+						<button type="button" class="btn btn-outline-danger file-x" data-uuid="${fvo.uuid }"  data-bno="${fvo.bno }">X</button>
+						
+					</div></li>
+			</c:forEach>
+		</ul>
+
+	</div>
+
+<br>
+<hr>
+		<!-- 파일 추가 -->
+
+		<!-- 파일 입력라인 추가 -->
+
+		<div class="mb-3">
+			<label for="file" class="form-label">Files</label> <input type="file"
+				class="form-control" id="file" name="files" multiple="multiple"
+				style="display: none"> <br>
+			<button type="button" class="btn btn-secondary" id="trigger">FileUplode...</button>
+		</div>
+
+		<!-- 파일 목록 효시라인 -->
+		<div class="mb-3" id="fileZone">
+		
+		</div>
+		 
+		
+
+		<a><button type="submit" class="btn btn-warning" id="regBtn">수정</button></a> 
+</form>
+<a href="/board/list"><button type="button" class="btn btn-primary">list</button></a> 
+
+</div>
+<script type="text/javascript" src="/re/js/boardModify.js"></script>
+<script type="text/javascript" src="/re/js/boardRegister.js"></script>
+<jsp:include page="../layout/footer.jsp" />
+
+

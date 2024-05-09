@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <jsp:include page="../layout/header.jsp" />
 
 <div  class="container-md">
 <h1>Board Detail Page</h1>
-
-<%-- <c:set value="${bdto.bvo }" var="bvo" /> --%>
+<sec:authentication property="principal.uvo.nickName" var="authNick"/>
+ <c:set value="${bdto.bvo }" var="bvo" /> 
 
 <div class="mb-3">
   <label for="n" class="form-label">bno</label>
@@ -30,9 +31,9 @@
 </div>
 
 <!-- FIle upload 표시라인 -->
-<%-- <c:set value="${bdto.flist }" var="flist" /> --%>
+ <c:set value="${bdto.flist }" var="flist" /> 
 
-<%-- 	<div class="mb-3">
+ 	<div class="mb-3">
 
 		<ul class="list-group list-group-flush">
 
@@ -42,26 +43,32 @@
 
 			<c:forEach items="${flist }" var="fvo">
 				<li class="list-group-item"><c:choose>
-						<c:when test="${fvo.file_type > 0 }">
+						<c:when test="${fvo.fileType > 0 }">
 							<div>
-								<img alt=""
-									src="/upload/${fvo.save_dir }/${fvo.uuid}_${fvo.file_name}">
+								<img alt="" src="/up/${fvo.saveDir }/${fvo.uuid}_${fvo.fileName}">
 							</div>
 						</c:when>
 						<c:otherwise>
 							<div>
+							<!-- 일반 파일 다운로드 -->
 								<!-- 파일 타입이 0인 경우 아이콘 모양 하나 가져와서 넣기 -->
+								<a href="/up/${fvo.saveDir }/${fvo.uuid}_${fvo.fileName}" download="${fvo.fileName}">
+									<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
+									  <path d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293z"/>
+									  <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+									</svg>
+								</a>
 							</div>
 						</c:otherwise>
 					</c:choose>
 					<div>
-						<div>${fvo.file_name }</div>
-						${fvo.reg_date } <span class="badge text-bg-warning">${fvo.file_size }Byte</span>
+						<div>${fvo.fileName }</div>
+						${fvo.regDate } <span class="badge text-bg-warning">${fvo.fileSize }Byte</span>
 					</div></li>
 			</c:forEach>
 		</ul>
 
-	</div> --%>
+	</div> 
 
 
 	<br>
@@ -79,7 +86,7 @@
 	<ul class="list-group list-group-flush" id="cmtlistArea">
 	  <li class="list-group-item">
 		  <div class="input-group mb-3">
-		  	<div class="fw-bold">Writer</div>
+		  	<div class="fw-bold">${authNick }</div>
 		  	content
 		  </div>
 		  <span class="badge text-bg-warning">regDate</span>

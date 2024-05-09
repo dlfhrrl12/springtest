@@ -2,12 +2,20 @@ package com.ezen.www.controller;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -70,21 +78,25 @@ public class BoardController {
 		
 		log.info(">>>detail로 들어오는 bno 확인{}",bno);
 
-		BoardVO bvo = bsv.getDetail(bno);
+		BoardDTO bdto = bsv.getDetail(bno);
 		
-		m.addAttribute("bvo",bvo);
+		m.addAttribute("bdto",bdto);
 		
 	}
 	
 	@PostMapping("/modify")
-	public String modify(BoardVO bvo, RedirectAttributes re) {
+	public String modify(BoardVO bvo, @RequestParam(name="files", required=false)MultipartFile[] files, RedirectAttributes re) {
+		List<FileVO> flist = null;
 		
-		int isOk = bsv.update(bvo);
+		if(files[0].getSize()>0) {
+			flist = fh.uploadFiles(files);
+		}
+		int isOk = bsv.updateFile(new BoardDTO(bvo, flist));
 		
+		
+//		int isOk = bsv.update(bvo);
 		re.addAttribute("bno",bvo.getBno());
-		
 //		return "redirect:/board/detail?bno="+bvo.getBno();
-	
 		//이렇게 redirectAttributes를 이용하여 보내는거도 사용가능
 		return "redirect:/board/detail";
 		
@@ -102,6 +114,12 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
+	@DeleteMapping(value="/file/{uuid}")
+	@ResponseBody
+	public String removeFile(@PathVariable("uuid")String uuid){
+		int isOk = bsv.removeFile(uuid);
+		return isOk > 0? "1":"0";
+	}
 	
 
 }
